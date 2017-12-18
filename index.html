@@ -50,7 +50,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -84,11 +84,46 @@
 <h3 id="第三章-函数作用域和块作用域"><a href="#第三章-函数作用域和块作用域" class="headerlink" title="第三章 函数作用域和块作用域"></a>第三章 函数作用域和块作用域</h3><h5 id="3-1-函数中的作用域"><a href="#3-1-函数中的作用域" class="headerlink" title="3.1  函数中的作用域"></a>3.1  函数中的作用域</h5><p>这个函数的全部变量都可以在整个函数的范围内使用及复用。</p>
 <h5 id="3-2-隐藏内部实现"><a href="#3-2-隐藏内部实现" class="headerlink" title="3.2   隐藏内部实现"></a>3.2   隐藏内部实现</h5><p>1.全局命名空间</p>
 <p>2.模块管理</p>
+<h5 id="3-3-函数作用域"><a href="#3-3-函数作用域" class="headerlink" title="3.3  函数作用域"></a>3.3  函数作用域</h5><p>函数声明和函数表达式之间最重要的区别就是它们的名称标识符将会绑定在何处；</p>
+<p>函数声明就是function a（）{….}</p>
+<p>函数表达式是(function a(){….})</p>
+<p>###### </p>
+<h6 id="3-3-1-匿名和具名"><a href="#3-3-1-匿名和具名" class="headerlink" title="3.3.1  匿名和具名"></a>3.3.1  匿名和具名</h6><p>匿名函数的缺点:</p>
+<p>1.匿名函数在栈追踪中不会显示出有意义的函数名，使得调试很困难；</p>
+<p>2.没有函数名的话，函数只能通过使用已经过期的arguments.callee引用自身；</p>
+<p>3.省略了原先具有可理解性的函数名；</p>
+<p>解决：通过行内函数表达式，始终给函数表达式命名就行了；</p>
+<h6 id="3-3-2-立即执行函数表达式（IIFE）"><a href="#3-3-2-立即执行函数表达式（IIFE）" class="headerlink" title="3.3.2  立即执行函数表达式（IIFE）"></a>3.3.2  立即执行函数表达式（IIFE）</h6><p>(function a(){….}) ()，就是后面的两个括号；</p>
+<p>或者(function a(){…} ())</p>
+<p>它的进阶用法就是把它们当做函数调用并传递参数进去，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var a = 2;</span><br><span class="line">(function IIFE( global ) &#123;</span><br><span class="line">var a = 3;</span><br><span class="line">console.log( a ); // 3</span><br><span class="line">console.log( global.a ); // 2</span><br><span class="line">&#125;)( window );</span><br><span class="line">console.log( a ); // 2</span><br></pre></td></tr></table></figure>
+<p>第二个应用场景是解决undefined标识符的默认值被错误覆盖导致的异常</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">undefined = true; // 给其他代码挖了一个大坑！ 绝对不要这样做！</span><br><span class="line">(function IIFE( undefined ) &#123;</span><br><span class="line">var a;</span><br><span class="line">if (a === undefined) &#123;</span><br><span class="line">console.log( &quot;Undefined is safe here!&quot; );</span><br><span class="line">&#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>第三个应用场景就是倒置代码运行的顺序。将需要运行的函数放在第二位；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(function IIFE( def ) &#123;</span><br><span class="line">def( window );</span><br><span class="line">&#125;)(function def( global ) &#123;</span><br><span class="line">var a = 3;</span><br><span class="line">console.log( a ); // 3</span><br><span class="line">console.log( global.a ); // 2</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="3-4-块作用域"><a href="#3-4-块作用域" class="headerlink" title="3.4 块作用域"></a>3.4 块作用域</h4><p>这是用来对之前的最小授权原则进行扩展的工具，将代码从函数中隐藏的信息扩展为在块中隐藏的信息；</p>
+<h6 id="3-4-1-with"><a href="#3-4-1-with" class="headerlink" title="3.4.1 with"></a>3.4.1 with</h6><p>用with从对象中创建出的作用域仅在with声明中而非外部作用域中有效；</p>
+<p>3.4.2 try/catch</p>
+<p>会创建一个块作用域，其中声明的变量仅在catch内部有效；</p>
+<p>3.4.3  let</p>
+<p>为其声明的变量隐式其所在的块作用域；</p>
+<p>为块作用域显式地创建块可以解决因为隐式而带来的混乱问题；用{….}为let创建一个用于绑定的块；</p>
+<h5 id="用处"><a href="#用处" class="headerlink" title="用处:"></a>用处:</h5><h6 id="1-垃圾收集"><a href="#1-垃圾收集" class="headerlink" title="1.垃圾收集"></a>1.垃圾收集</h6><p>有关于闭包及回收内存垃圾的回收机制</p>
+<h6 id="2-let循环"><a href="#2-let循环" class="headerlink" title="2.let循环"></a>2.let循环</h6><p>用let声明附属于一个新的作用域而不是当前的函数作用域，也不属于全局作用域</p>
+<h6 id="3-const"><a href="#3-const" class="headerlink" title="3.const"></a>3.const</h6><p>同样可以用来创建块作用域变量而且不可变。</p>
+<h3 id="第四章-提升"><a href="#第四章-提升" class="headerlink" title="第四章  提升"></a>第四章  提升</h3><h5 id="4-2-编译器再度来袭"><a href="#4-2-编译器再度来袭" class="headerlink" title="4.2   编译器再度来袭"></a>4.2   编译器再度来袭</h5><p>var a = 2;</p>
+<p>这句话其实有两个声明，一个是var a，定义声明在编译阶段进行的（编译）； a = 2，赋值声明会被留在原地等待（执行）；</p>
+<p>先有声明才有赋值；</p>
+<p>只有声明本身才会被提升，而赋值或其他运行逻辑会留在原地即函数表达式不会被提升；</p>
+<h5 id="4-3-函数优先"><a href="#4-3-函数优先" class="headerlink" title="4.3  函数优先"></a>4.3  函数优先</h5><p>函数声明和变量声明都会被提升，但是函数首先会被提升，然后才是变量；</p>
+<h3 id="第五章-闭包"><a href="#第五章-闭包" class="headerlink" title="第五章  闭包"></a>第五章  闭包</h3><p>5.2  实质问题</p>
+<p>当函数可以记住并访问所在的词法作用域的时候，就产生了闭包，及时函数是在当前词法作用域之外执行；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fuction foo()&#123;</span><br><span class="line">   var a = 2;</span><br><span class="line">   function bar ()&#123;</span><br><span class="line">     console.log(a);</span><br><span class="line">   &#125;</span><br><span class="line">   return bar;</span><br><span class="line">&#125;</span><br><span class="line">var baz= foo();</span><br><span class="line">baz();//2</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/18/你所不知道的JavaScript上/" data-id="cjbbzr0o900004wqk65vrpc1f" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/18/你所不知道的JavaScript上/" data-id="cjbbzu1ei0001koqk38jul84f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -128,7 +163,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/18/hello/" data-id="cjbbzr0oh00014wqkzz9155c3" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/18/hello/" data-id="cjbbzu1ec0000koqkuxa3u4am" class="article-share-link">Share</a>
       
       
     </footer>
@@ -154,7 +189,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -164,7 +199,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
