@@ -7,16 +7,16 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="你所不知道的JavaScript（上）第一章 作用域作用域 一般语言的作用域生成过程：分词/词法分析、解析/语法分析、代码生成 编译器要生成一个树，还要询问作用域是否已经存在该变量，没有就生成；还要为引擎生成运行代码，这时引擎就要找这个变量了，有的话就用，没有就继续查找；（首先编译器会在当前作用域中声明之前没有声明的变量，然后引擎在作用域中查找该变量，能找到就对它进行赋值） 异常Reference">
+  <meta name="description" content="title: JavaScript学习笔记 date：2017-12-20 tags:[IT] category: 杂文  第一章 作用域  第一章 作用域作用域 一般语言的作用域生成过程：分词/词法分析、解析/语法分析、代码生成 编译器要生成一个树，还要询问作用域是否已经存在该变量，没有就生成；还要为引擎生成运行代码，这时引擎就要找这个变量了，有的话就用，没有就继续查找；（首先编译器会在当前作用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://yoursite.com/2017/12/18/你所不知道的JavaScript上/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="你所不知道的JavaScript（上）第一章 作用域作用域 一般语言的作用域生成过程：分词/词法分析、解析/语法分析、代码生成 编译器要生成一个树，还要询问作用域是否已经存在该变量，没有就生成；还要为引擎生成运行代码，这时引擎就要找这个变量了，有的话就用，没有就继续查找；（首先编译器会在当前作用域中声明之前没有声明的变量，然后引擎在作用域中查找该变量，能找到就对它进行赋值） 异常Reference">
-<meta property="og:updated_time" content="2017-12-16T03:57:06.267Z">
+<meta property="og:description" content="title: JavaScript学习笔记 date：2017-12-20 tags:[IT] category: 杂文  第一章 作用域  第一章 作用域作用域 一般语言的作用域生成过程：分词/词法分析、解析/语法分析、代码生成 编译器要生成一个树，还要询问作用域是否已经存在该变量，没有就生成；还要为引擎生成运行代码，这时引擎就要找这个变量了，有的话就用，没有就继续查找；（首先编译器会在当前作用">
+<meta property="og:updated_time" content="2017-12-20T06:42:43.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="你所不知道的JavaScript（上）第一章 作用域作用域 一般语言的作用域生成过程：分词/词法分析、解析/语法分析、代码生成 编译器要生成一个树，还要询问作用域是否已经存在该变量，没有就生成；还要为引擎生成运行代码，这时引擎就要找这个变量了，有的话就用，没有就继续查找；（首先编译器会在当前作用域中声明之前没有声明的变量，然后引擎在作用域中查找该变量，能找到就对它进行赋值） 异常Reference">
+<meta name="twitter:description" content="title: JavaScript学习笔记 date：2017-12-20 tags:[IT] category: 杂文  第一章 作用域  第一章 作用域作用域 一般语言的作用域生成过程：分词/词法分析、解析/语法分析、代码生成 编译器要生成一个树，还要询问作用域是否已经存在该变量，没有就生成；还要为引擎生成运行代码，这时引擎就要找这个变量了，有的话就用，没有就继续查找；（首先编译器会在当前作用">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -54,7 +54,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -75,27 +75,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="你所不知道的JavaScript（上）"><a href="#你所不知道的JavaScript（上）" class="headerlink" title="你所不知道的JavaScript（上）"></a>你所不知道的JavaScript（上）</h1><h3 id="第一章-作用域"><a href="#第一章-作用域" class="headerlink" title="第一章 作用域"></a>第一章 作用域</h3><p>作用域</p>
+        <p>title: JavaScript学习笔记</p>
+<p>date：2017-12-20</p>
+<p>tags:[IT]</p>
+<p>category:</p>
+<pre><code>杂文
+</code></pre><!--toc-->
+<h1 id="di-yi-zhang-zuo-yong-yu"><a href="#di-yi-zhang-zuo-yong-yu" class="header‐anchor">1. </a>第一章 作用域</h1>
+
+<h3 id="di-yi-zhang-zuo-yong-yu"><a href="#di-yi-zhang-zuo-yong-yu" class="header‐anchor">1.1. </a><a href="#第一章-作用域" class="headerlink" title="第一章 作用域"></a>第一章 作用域</h3><p>作用域</p>
 <p>一般语言的作用域生成过程：分词/词法分析、解析/语法分析、代码生成</p>
 <p>编译器要生成一个树，还要询问作用域是否已经存在该变量，没有就生成；还要为引擎生成运行代码，这时引擎就要找这个变量了，有的话就用，没有就继续查找；（首先编译器会在当前作用域中声明之前没有声明的变量，然后引擎在作用域中查找该变量，能找到就对它进行赋值）</p>
-<h4 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h4><p>ReferenceError同作用域判断失败相关，TypeError代表作用域判断成功了，但是对结果的操作是非法的或是不合理的；</p>
+<h4 id="yi-chang"><a href="#yi-chang" class="header‐anchor">1.1.1. </a><a href="#异常" class="headerlink" title="异常"></a>异常</h4><p>ReferenceError同作用域判断失败相关，TypeError代表作用域判断成功了，但是对结果的操作是非法的或是不合理的；</p>
 <p>如果查找的目标是对变量进行赋值，就会使用LHS查询；如果目标是获得变量的是，就会进行RHS查询。</p>
-<h4 id="欺骗词法（因为它们在运行时候修改或者创建了新的作用域，欺骗其他在书写时定义的词法作用域）"><a href="#欺骗词法（因为它们在运行时候修改或者创建了新的作用域，欺骗其他在书写时定义的词法作用域）" class="headerlink" title="欺骗词法（因为它们在运行时候修改或者创建了新的作用域，欺骗其他在书写时定义的词法作用域）"></a>欺骗词法（因为它们在运行时候修改或者创建了新的作用域，欺骗其他在书写时定义的词法作用域）</h4><p>第一种机制：eval(string)，通常被用来执行动态创建的代码；但是在严格模式上，eval在运行的时候会有自己的词法作用域，就无法修改所在的作用域 ；</p>
+<h4 id="qi-pian-ci-fa-yin-wei-ta-men-zai-yun-xing-shi-hou-xiu-gai-huo-zhe-chuang-jian-liao-xin-de-zuo-yong-yu-qi-pian-qi-ta-zai-shu-xie-shi-ding-yi-de-ci-fa-zuo-yong-yu"><a href="#qi-pian-ci-fa-yin-wei-ta-men-zai-yun-xing-shi-hou-xiu-gai-huo-zhe-chuang-jian-liao-xin-de-zuo-yong-yu-qi-pian-qi-ta-zai-shu-xie-shi-ding-yi-de-ci-fa-zuo-yong-yu" class="header‐anchor">1.1.2. </a><a href="#欺骗词法（因为它们在运行时候修改或者创建了新的作用域，欺骗其他在书写时定义的词法作用域）" class="headerlink" title="欺骗词法（因为它们在运行时候修改或者创建了新的作用域，欺骗其他在书写时定义的词法作用域）"></a>欺骗词法（因为它们在运行时候修改或者创建了新的作用域，欺骗其他在书写时定义的词法作用域）</h4><p>第一种机制：eval(string)，通常被用来执行动态创建的代码；但是在严格模式上，eval在运行的时候会有自己的词法作用域，就无法修改所在的作用域 ；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function foo(str, a) &#123;</span><br><span class="line">eval( str ); // 欺骗！</span><br><span class="line">console.log( a, b );</span><br><span class="line">&#125;</span><br><span class="line">var b = 2;</span><br><span class="line">foo( &quot;var b = 3;&quot;, 1 ); // 1, 3</span><br></pre></td></tr></table></figure>
 <p>第二种机制：with,实际上是根据传递给它的对象凭空创建了一个全新的词法作用域；</p>
-<h3 id="第三章-函数作用域和块作用域"><a href="#第三章-函数作用域和块作用域" class="headerlink" title="第三章 函数作用域和块作用域"></a>第三章 函数作用域和块作用域</h3><h5 id="3-1-函数中的作用域"><a href="#3-1-函数中的作用域" class="headerlink" title="3.1  函数中的作用域"></a>3.1  函数中的作用域</h5><p>这个函数的全部变量都可以在整个函数的范围内使用及复用。</p>
-<h5 id="3-2-隐藏内部实现"><a href="#3-2-隐藏内部实现" class="headerlink" title="3.2   隐藏内部实现"></a>3.2   隐藏内部实现</h5><p>1.全局命名空间</p>
+<a id="more"></a>
+<h3 id="di-san-zhang-han-shu-zuo-yong-yu-he-kuai-zuo-yong-yu"><a href="#di-san-zhang-han-shu-zuo-yong-yu-he-kuai-zuo-yong-yu" class="header‐anchor">1.2. </a><a href="#第三章-函数作用域和块作用域" class="headerlink" title="第三章 函数作用域和块作用域"></a>第三章 函数作用域和块作用域</h3><h5 id="3-1-han-shu-zhong-de-zuo-yong-yu"><a href="#3-1-han-shu-zhong-de-zuo-yong-yu" class="header‐anchor">1.2.1. </a><a href="#3-1-函数中的作用域" class="headerlink" title="3.1  函数中的作用域"></a>3.1  函数中的作用域</h5><p>这个函数的全部变量都可以在整个函数的范围内使用及复用。</p>
+<h5 id="3-2-yin-cang-nei-bu-shi-xian"><a href="#3-2-yin-cang-nei-bu-shi-xian" class="header‐anchor">1.2.2. </a><a href="#3-2-隐藏内部实现" class="headerlink" title="3.2   隐藏内部实现"></a>3.2   隐藏内部实现</h5><p>1.全局命名空间</p>
 <p>2.模块管理</p>
-<h5 id="3-3-函数作用域"><a href="#3-3-函数作用域" class="headerlink" title="3.3  函数作用域"></a>3.3  函数作用域</h5><p>函数声明和函数表达式之间最重要的区别就是它们的名称标识符将会绑定在何处；</p>
+<h5 id="3-3-han-shu-zuo-yong-yu"><a href="#3-3-han-shu-zuo-yong-yu" class="header‐anchor">1.2.3. </a><a href="#3-3-函数作用域" class="headerlink" title="3.3  函数作用域"></a>3.3  函数作用域</h5><p>函数声明和函数表达式之间最重要的区别就是它们的名称标识符将会绑定在何处；</p>
 <p>函数声明就是function a（）{….}</p>
 <p>函数表达式是(function a(){….})</p>
 <p>###### </p>
-<h6 id="3-3-1-匿名和具名"><a href="#3-3-1-匿名和具名" class="headerlink" title="3.3.1  匿名和具名"></a>3.3.1  匿名和具名</h6><p>匿名函数的缺点:</p>
+<h6 id="3-3-1-ni-ming-he-ju-ming"><a href="#3-3-1-ni-ming-he-ju-ming" class="header‐anchor">1.2.3.1. </a><a href="#3-3-1-匿名和具名" class="headerlink" title="3.3.1  匿名和具名"></a>3.3.1  匿名和具名</h6><p>匿名函数的缺点:</p>
 <p>1.匿名函数在栈追踪中不会显示出有意义的函数名，使得调试很困难；</p>
 <p>2.没有函数名的话，函数只能通过使用已经过期的arguments.callee引用自身；</p>
 <p>3.省略了原先具有可理解性的函数名；</p>
 <p>解决：通过行内函数表达式，始终给函数表达式命名就行了；</p>
-<h6 id="3-3-2-立即执行函数表达式（IIFE）"><a href="#3-3-2-立即执行函数表达式（IIFE）" class="headerlink" title="3.3.2  立即执行函数表达式（IIFE）"></a>3.3.2  立即执行函数表达式（IIFE）</h6><p>(function a(){….}) ()，就是后面的两个括号；</p>
+<h6 id="3-3-2-li-ji-zhi-xing-han-shu-biao-da-shi-iife"><a href="#3-3-2-li-ji-zhi-xing-han-shu-biao-da-shi-iife" class="header‐anchor">1.2.3.2. </a><a href="#3-3-2-立即执行函数表达式（IIFE）" class="headerlink" title="3.3.2  立即执行函数表达式（IIFE）"></a>3.3.2  立即执行函数表达式（IIFE）</h6><p>(function a(){….}) ()，就是后面的两个括号；</p>
 <p>或者(function a(){…} ())</p>
 <p>它的进阶用法就是把它们当做函数调用并传递参数进去，例如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var a = 2;</span><br><span class="line">(function IIFE( global ) &#123;</span><br><span class="line">var a = 3;</span><br><span class="line">console.log( a ); // 3</span><br><span class="line">console.log( global.a ); // 2</span><br><span class="line">&#125;)( window );</span><br><span class="line">console.log( a ); // 2</span><br></pre></td></tr></table></figure>
@@ -103,29 +112,29 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">undefined = true; // 给其他代码挖了一个大坑！ 绝对不要这样做！</span><br><span class="line">(function IIFE( undefined ) &#123;</span><br><span class="line">var a;</span><br><span class="line">if (a === undefined) &#123;</span><br><span class="line">console.log( &quot;Undefined is safe here!&quot; );</span><br><span class="line">&#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 <p>第三个应用场景就是倒置代码运行的顺序。将需要运行的函数放在第二位；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(function IIFE( def ) &#123;</span><br><span class="line">def( window );</span><br><span class="line">&#125;)(function def( global ) &#123;</span><br><span class="line">var a = 3;</span><br><span class="line">console.log( a ); // 3</span><br><span class="line">console.log( global.a ); // 2</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="3-4-块作用域"><a href="#3-4-块作用域" class="headerlink" title="3.4 块作用域"></a>3.4 块作用域</h4><p>这是用来对之前的最小授权原则进行扩展的工具，将代码从函数中隐藏的信息扩展为在块中隐藏的信息；</p>
-<h6 id="3-4-1-with"><a href="#3-4-1-with" class="headerlink" title="3.4.1 with"></a>3.4.1 with</h6><p>用with从对象中创建出的作用域仅在with声明中而非外部作用域中有效；</p>
+<h4 id="3-4-kuai-zuo-yong-yu"><a href="#3-4-kuai-zuo-yong-yu" class="header‐anchor">1.2.3.1. </a><a href="#3-4-块作用域" class="headerlink" title="3.4 块作用域"></a>3.4 块作用域</h4><p>这是用来对之前的最小授权原则进行扩展的工具，将代码从函数中隐藏的信息扩展为在块中隐藏的信息；</p>
+<h6 id="3-4-1-with"><a href="#3-4-1-with" class="header‐anchor">1.2.3.1.1. </a><a href="#3-4-1-with" class="headerlink" title="3.4.1 with"></a>3.4.1 with</h6><p>用with从对象中创建出的作用域仅在with声明中而非外部作用域中有效；</p>
 <p>3.4.2 try/catch</p>
 <p>会创建一个块作用域，其中声明的变量仅在catch内部有效；</p>
 <p>3.4.3  let</p>
 <p>为其声明的变量隐式其所在的块作用域；</p>
 <p>为块作用域显式地创建块可以解决因为隐式而带来的混乱问题；用{….}为let创建一个用于绑定的块；</p>
-<h5 id="用处"><a href="#用处" class="headerlink" title="用处:"></a>用处:</h5><h6 id="1-垃圾收集"><a href="#1-垃圾收集" class="headerlink" title="1.垃圾收集"></a>1.垃圾收集</h6><p>有关于闭包及回收内存垃圾的回收机制</p>
-<h6 id="2-let循环"><a href="#2-let循环" class="headerlink" title="2.let循环"></a>2.let循环</h6><p>用let声明附属于一个新的作用域而不是当前的函数作用域，也不属于全局作用域</p>
-<h6 id="3-const"><a href="#3-const" class="headerlink" title="3.const"></a>3.const</h6><p>同样可以用来创建块作用域变量而且不可变。</p>
-<h3 id="第四章-提升"><a href="#第四章-提升" class="headerlink" title="第四章  提升"></a>第四章  提升</h3><h5 id="4-2-编译器再度来袭"><a href="#4-2-编译器再度来袭" class="headerlink" title="4.2   编译器再度来袭"></a>4.2   编译器再度来袭</h5><p>var a = 2;</p>
+<h5 id="yong-chu"><a href="#yong-chu" class="header‐anchor">1.2.4.1. </a><a href="#用处" class="headerlink" title="用处:"></a>用处:</h5><h6 id="1-la-ji-shou-ji"><a href="#1-la-ji-shou-ji" class="header‐anchor">1.2.4.1.1. </a><a href="#1-垃圾收集" class="headerlink" title="1.垃圾收集"></a>1.垃圾收集</h6><p>有关于闭包及回收内存垃圾的回收机制</p>
+<h6 id="2-let-xun-huan"><a href="#2-let-xun-huan" class="header‐anchor">1.2.4.1.2. </a><a href="#2-let循环" class="headerlink" title="2.let循环"></a>2.let循环</h6><p>用let声明附属于一个新的作用域而不是当前的函数作用域，也不属于全局作用域</p>
+<h6 id="3-const"><a href="#3-const" class="header‐anchor">1.2.4.1.3. </a><a href="#3-const" class="headerlink" title="3.const"></a>3.const</h6><p>同样可以用来创建块作用域变量而且不可变。</p>
+<h3 id="di-si-zhang-ti-sheng"><a href="#di-si-zhang-ti-sheng" class="header‐anchor">1.3.4.1. </a><a href="#第四章-提升" class="headerlink" title="第四章  提升"></a>第四章  提升</h3><h5 id="4-2-bian-yi-qi-zai-du-lai-xi"><a href="#4-2-bian-yi-qi-zai-du-lai-xi" class="header‐anchor">1.3.5.1. </a><a href="#4-2-编译器再度来袭" class="headerlink" title="4.2   编译器再度来袭"></a>4.2   编译器再度来袭</h5><p>var a = 2;</p>
 <p>这句话其实有两个声明，一个是var a，定义声明在编译阶段进行的（编译）； a = 2，赋值声明会被留在原地等待（执行）；</p>
 <p>先有声明才有赋值；</p>
 <p>只有声明本身才会被提升，而赋值或其他运行逻辑会留在原地即函数表达式不会被提升；</p>
-<h5 id="4-3-函数优先"><a href="#4-3-函数优先" class="headerlink" title="4.3  函数优先"></a>4.3  函数优先</h5><p>函数声明和变量声明都会被提升，但是函数首先会被提升，然后才是变量；</p>
-<h3 id="第五章-闭包"><a href="#第五章-闭包" class="headerlink" title="第五章  闭包"></a>第五章  闭包</h3><p>5.2  实质问题</p>
+<h5 id="4-3-han-shu-you-xian"><a href="#4-3-han-shu-you-xian" class="header‐anchor">1.3.6.1. </a><a href="#4-3-函数优先" class="headerlink" title="4.3  函数优先"></a>4.3  函数优先</h5><p>函数声明和变量声明都会被提升，但是函数首先会被提升，然后才是变量；</p>
+<h3 id="di-wu-zhang-bi-bao"><a href="#di-wu-zhang-bi-bao" class="header‐anchor">1.4.1. </a><a href="#第五章-闭包" class="headerlink" title="第五章  闭包"></a>第五章  闭包</h3><p>5.2  实质问题</p>
 <p>当函数可以记住并访问所在的词法作用域的时候，就产生了闭包，及时函数是在当前词法作用域之外执行；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fuction foo()&#123;</span><br><span class="line">   var a = 2;</span><br><span class="line">   function bar ()&#123;</span><br><span class="line">     console.log(a);</span><br><span class="line">   &#125;</span><br><span class="line">   return bar;</span><br><span class="line">&#125;</span><br><span class="line">var baz= foo();</span><br><span class="line">baz();//2</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/18/你所不知道的JavaScript上/" data-id="cjbbzu1ei0001koqk38jul84f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/18/你所不知道的JavaScript上/" data-id="cjbepjdpc0001ekqk2wy4f3nj" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -134,9 +143,18 @@
     
 <nav id="article-nav">
   
+    <a href="/2017/12/20/second-md/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          &#39;second.md&#39;
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/12/18/hello/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Älter</strong>
       <div class="article-nav-title"></div>
     </a>
   
@@ -159,7 +177,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -169,9 +187,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/12/20/second-md/">&#39;second.md&#39;</a>
+          </li>
         
           <li>
             <a href="/2017/12/18/你所不知道的JavaScript上/">(no title)</a>
