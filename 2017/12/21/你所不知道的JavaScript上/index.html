@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="IT," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="第一章 作用域作用域 一般语言的作用域生成过程：分词/词法分析、解析/语法分析、代码生成 编译器要生成一个树，还要询问作用域是否已经存在该变量，没有就生成；还要为引擎生成运行代码，这时引擎就要找这个变量了，有的话就用，没有就继续查找；（首先编译器会在当前作用域中声明之前没有声明的变量，然后引擎在作用域中查找该变量，能找到就对它进行赋值） 异常ReferenceError同作用域判断失败相关，Ty">
+<meta name="keywords" content="IT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你所不知道的JavaScript上">
+<meta property="og:url" content="http://yoursite.com/2017/12/21/你所不知道的JavaScript上/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="第一章 作用域作用域 一般语言的作用域生成过程：分词/词法分析、解析/语法分析、代码生成 编译器要生成一个树，还要询问作用域是否已经存在该变量，没有就生成；还要为引擎生成运行代码，这时引擎就要找这个变量了，有的话就用，没有就继续查找；（首先编译器会在当前作用域中声明之前没有声明的变量，然后引擎在作用域中查找该变量，能找到就对它进行赋值） 异常ReferenceError同作用域判断失败相关，Ty">
+<meta property="og:updated_time" content="2017-12-21T06:41:35.981Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你所不知道的JavaScript上">
+<meta name="twitter:description" content="第一章 作用域作用域 一般语言的作用域生成过程：分词/词法分析、解析/语法分析、代码生成 编译器要生成一个树，还要询问作用域是否已经存在该变量，没有就生成；还要为引擎生成运行代码，这时引擎就要找这个变量了，有的话就用，没有就继续查找；（首先编译器会在当前作用域中声明之前没有声明的变量，然后引擎在作用域中查找该变量，能找到就对它进行赋值） 异常ReferenceError同作用域判断失败相关，Ty">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/21/你所不知道的JavaScript上/"/>
+
+
+
+
+
+  <title>你所不知道的JavaScript上 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/21/你所不知道的JavaScript上/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Happy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cartoon.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">你所不知道的JavaScript上</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-21T10:48:15+08:00">
+                2017-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/杂文/" itemprop="url" rel="index">
+                    <span itemprop="name">杂文</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <!--toc-->
+<h3 id="di-yi-zhang-zuo-yong-yu"><a href="#di-yi-zhang-zuo-yong-yu" class="header‐anchor">1. </a><a href="#第一章-作用域" class="headerlink" title="第一章 作用域"></a>第一章 作用域</h3><p>作用域</p>
+<p>一般语言的作用域生成过程：分词/词法分析、解析/语法分析、代码生成</p>
+<p>编译器要生成一个树，还要询问作用域是否已经存在该变量，没有就生成；还要为引擎生成运行代码，这时引擎就要找这个变量了，有的话就用，没有就继续查找；（首先编译器会在当前作用域中声明之前没有声明的变量，然后引擎在作用域中查找该变量，能找到就对它进行赋值）</p>
+<h4 id="yi-chang"><a href="#yi-chang" class="header‐anchor">1.1. </a><a href="#异常" class="headerlink" title="异常"></a>异常</h4><p>ReferenceError同作用域判断失败相关，TypeError代表作用域判断成功了，但是对结果的操作是非法的或是不合理的；</p>
+<p>如果查找的目标是对变量进行赋值，就会使用LHS查询；如果目标是获得变量的是，就会进行RHS查询。</p>
+<h4 id="qi-pian-ci-fa-yin-wei-ta-men-zai-yun-xing-shi-hou-xiu-gai-huo-zhe-chuang-jian-liao-xin-de-zuo-yong-yu-qi-pian-qi-ta-zai-shu-xie-shi-ding-yi-de-ci-fa-zuo-yong-yu"><a href="#qi-pian-ci-fa-yin-wei-ta-men-zai-yun-xing-shi-hou-xiu-gai-huo-zhe-chuang-jian-liao-xin-de-zuo-yong-yu-qi-pian-qi-ta-zai-shu-xie-shi-ding-yi-de-ci-fa-zuo-yong-yu" class="header‐anchor">1.2. </a><a href="#欺骗词法（因为它们在运行时候修改或者创建了新的作用域，欺骗其他在书写时定义的词法作用域）" class="headerlink" title="欺骗词法（因为它们在运行时候修改或者创建了新的作用域，欺骗其他在书写时定义的词法作用域）"></a>欺骗词法（因为它们在运行时候修改或者创建了新的作用域，欺骗其他在书写时定义的词法作用域）</h4><p>第一种机制：eval(string)，通常被用来执行动态创建的代码；但是在严格模式上，eval在运行的时候会有自己的词法作用域，就无法修改所在的作用域 ；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function foo(str, a) &#123;</span><br><span class="line">eval( str ); // 欺骗！</span><br><span class="line">console.log( a, b );</span><br><span class="line">&#125;</span><br><span class="line">var b = 2;</span><br><span class="line">foo( &quot;var b = 3;&quot;, 1 ); // 1, 3</span><br></pre></td></tr></table></figure>
+<p>第二种机制：with,实际上是根据传递给它的对象凭空创建了一个全新的词法作用域；</p>
+<a id="more"></a>
+<h3 id="di-san-zhang-han-shu-zuo-yong-yu-he-kuai-zuo-yong-yu"><a href="#di-san-zhang-han-shu-zuo-yong-yu-he-kuai-zuo-yong-yu" class="header‐anchor">2. </a><a href="#第三章-函数作用域和块作用域" class="headerlink" title="第三章 函数作用域和块作用域"></a>第三章 函数作用域和块作用域</h3><h5 id="3-1-han-shu-zhong-de-zuo-yong-yu"><a href="#3-1-han-shu-zhong-de-zuo-yong-yu" class="header‐anchor">2.1. </a><a href="#3-1-函数中的作用域" class="headerlink" title="3.1  函数中的作用域"></a>3.1  函数中的作用域</h5><p>这个函数的全部变量都可以在整个函数的范围内使用及复用。</p>
+<h5 id="3-2-yin-cang-nei-bu-shi-xian"><a href="#3-2-yin-cang-nei-bu-shi-xian" class="header‐anchor">2.2. </a><a href="#3-2-隐藏内部实现" class="headerlink" title="3.2   隐藏内部实现"></a>3.2   隐藏内部实现</h5><p>1.全局命名空间</p>
+<p>2.模块管理</p>
+<h5 id="3-3-han-shu-zuo-yong-yu"><a href="#3-3-han-shu-zuo-yong-yu" class="header‐anchor">2.3. </a><a href="#3-3-函数作用域" class="headerlink" title="3.3  函数作用域"></a>3.3  函数作用域</h5><p>函数声明和函数表达式之间最重要的区别就是它们的名称标识符将会绑定在何处；</p>
+<p>函数声明就是function a（）{….}</p>
+<p>函数表达式是(function a(){….})</p>
+<h6 id=""><a href="#" class="header‐anchor">2.3.1. </a><a href="#" class="headerlink" title=" "></a> </h6><h6 id="3-3-1-ni-ming-he-ju-ming"><a href="#3-3-1-ni-ming-he-ju-ming" class="header‐anchor">2.3.2. </a><a href="#3-3-1-匿名和具名" class="headerlink" title="3.3.1  匿名和具名"></a>3.3.1  匿名和具名</h6><p>匿名函数的缺点:</p>
+<p>1.匿名函数在栈追踪中不会显示出有意义的函数名，使得调试很困难；</p>
+<p>2.没有函数名的话，函数只能通过使用已经过期的arguments.callee引用自身；</p>
+<p>3.省略了原先具有可理解性的函数名；</p>
+<p>解决：通过行内函数表达式，始终给函数表达式命名就行了；</p>
+<h6 id="3-3-2-li-ji-zhi-xing-han-shu-biao-da-shi-iife"><a href="#3-3-2-li-ji-zhi-xing-han-shu-biao-da-shi-iife" class="header‐anchor">2.3.3. </a><a href="#3-3-2-立即执行函数表达式（IIFE）" class="headerlink" title="3.3.2  立即执行函数表达式（IIFE）"></a>3.3.2  立即执行函数表达式（IIFE）</h6><p>(function a(){….}) ()，就是后面的两个括号；</p>
+<p>或者(function a(){…} ())</p>
+<p>它的进阶用法就是把它们当做函数调用并传递参数进去，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = 2;</span><br><span class="line">(function IIFE( global ) &#123;</span><br><span class="line">var a = 3;</span><br><span class="line">console.log( a ); // 3</span><br><span class="line">console.log( global.a ); // 2</span><br><span class="line">&#125;)( window );</span><br><span class="line">console.log( a ); // 2</span><br></pre></td></tr></table></figure>
+<p>第二个应用场景是解决undefined标识符的默认值被错误覆盖导致的异常</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">undefined = true; // 给其他代码挖了一个大坑！ 绝对不要这样做！</span><br><span class="line">(function IIFE( undefined ) &#123;</span><br><span class="line">var a;</span><br><span class="line">if (a === undefined) &#123;</span><br><span class="line">console.log( &quot;Undefined is safe here!&quot; );</span><br><span class="line">&#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>第三个应用场景就是倒置代码运行的顺序。将需要运行的函数放在第二位；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(function IIFE( def ) &#123;</span><br><span class="line">def( window );</span><br><span class="line">&#125;)(function def( global ) &#123;</span><br><span class="line">var a = 3;</span><br><span class="line">console.log( a ); // 3</span><br><span class="line">console.log( global.a ); // 2</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="3-4-kuai-zuo-yong-yu"><a href="#3-4-kuai-zuo-yong-yu" class="header‐anchor">2.3.1. </a><a href="#3-4-块作用域" class="headerlink" title="3.4 块作用域"></a>3.4 块作用域</h4><p>这是用来对之前的最小授权原则进行扩展的工具，将代码从函数中隐藏的信息扩展为在块中隐藏的信息；</p>
+<h6 id="3-4-1-with"><a href="#3-4-1-with" class="header‐anchor">2.3.1.1. </a><a href="#3-4-1-with" class="headerlink" title="3.4.1 with"></a>3.4.1 with</h6><p>用with从对象中创建出的作用域仅在with声明中而非外部作用域中有效；</p>
+<p>3.4.2 try/catch</p>
+<p>会创建一个块作用域，其中声明的变量仅在catch内部有效；</p>
+<p>3.4.3  let</p>
+<p>为其声明的变量隐式其所在的块作用域；</p>
+<p>为块作用域显式地创建块可以解决因为隐式而带来的混乱问题；用{….}为let创建一个用于绑定的块；</p>
+<h5 id="yong-chu"><a href="#yong-chu" class="header‐anchor">2.4.1. </a><a href="#用处" class="headerlink" title="用处:"></a>用处:</h5><h6 id="1-la-ji-shou-ji"><a href="#1-la-ji-shou-ji" class="header‐anchor">2.4.1.1. </a><a href="#1-垃圾收集" class="headerlink" title="1.垃圾收集"></a>1.垃圾收集</h6><p>有关于闭包及回收内存垃圾的回收机制</p>
+<h6 id="2-let-xun-huan"><a href="#2-let-xun-huan" class="header‐anchor">2.4.1.2. </a><a href="#2-let循环" class="headerlink" title="2.let循环"></a>2.let循环</h6><p>用let声明附属于一个新的作用域而不是当前的函数作用域，也不属于全局作用域</p>
+<h6 id="3-const"><a href="#3-const" class="header‐anchor">2.4.1.3. </a><a href="#3-const" class="headerlink" title="3.const"></a>3.const</h6><p>同样可以用来创建块作用域变量而且不可变。</p>
+<h3 id="di-si-zhang-ti-sheng"><a href="#di-si-zhang-ti-sheng" class="header‐anchor">3.4.1. </a><a href="#第四章-提升" class="headerlink" title="第四章  提升"></a>第四章  提升</h3><h5 id="4-2-bian-yi-qi-zai-du-lai-xi"><a href="#4-2-bian-yi-qi-zai-du-lai-xi" class="header‐anchor">3.5.1. </a><a href="#4-2-编译器再度来袭" class="headerlink" title="4.2   编译器再度来袭"></a>4.2   编译器再度来袭</h5><p>var a = 2;</p>
+<p>这句话其实有两个声明，一个是var a，定义声明在编译阶段进行的（编译）； a = 2，赋值声明会被留在原地等待（执行）；</p>
+<p>先有声明才有赋值；</p>
+<p>只有声明本身才会被提升，而赋值或其他运行逻辑会留在原地即函数表达式不会被提升；</p>
+<h5 id="4-3-han-shu-you-xian"><a href="#4-3-han-shu-you-xian" class="header‐anchor">3.6.1. </a><a href="#4-3-函数优先" class="headerlink" title="4.3  函数优先"></a>4.3  函数优先</h5><p>函数声明和变量声明都会被提升，但是函数首先会被提升，然后才是变量；</p>
+<h3 id="di-wu-zhang-bi-bao"><a href="#di-wu-zhang-bi-bao" class="header‐anchor">4.1. </a><a href="#第五章-闭包" class="headerlink" title="第五章  闭包"></a>第五章  闭包</h3><p>5.2  实质问题</p>
+<p>当函数可以记住并访问所在的词法作用域的时候，就产生了闭包，及时函数是在当前词法作用域之外执行；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fuction foo()&#123;</span><br><span class="line">   var a = 2;</span><br><span class="line">   function bar ()&#123;</span><br><span class="line">     console.log(a);</span><br><span class="line">   &#125;</span><br><span class="line">   return bar;</span><br><span class="line">&#125;</span><br><span class="line">var baz= foo();</span><br><span class="line">baz();//2</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/IT/" rel="tag"># IT</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/21/apply-md/" rel="next" title="支付宝小程序">
+                <i class="fa fa-chevron-left"></i> 支付宝小程序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/cartoon.jpg"
+                alt="Happy" />
+            
+              <p class="site-author-name" itemprop="name">Happy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#di-yi-zhang-zuo-yong-yu"><span class="nav-number">1.</span> <span class="nav-text"><a href="#di-yi-zhang-zuo-yong-yu" class="header&#x2010;anchor">1. </a><a href="#&#x7B2C;&#x4E00;&#x7AE0;-&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="&#x7B2C;&#x4E00;&#x7AE0; &#x4F5C;&#x7528;&#x57DF;"></a>&#x7B2C;&#x4E00;&#x7AE0; &#x4F5C;&#x7528;&#x57DF;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#yi-chang"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#yi-chang" class="header&#x2010;anchor">1.1. </a><a href="#&#x5F02;&#x5E38;" class="headerlink" title="&#x5F02;&#x5E38;"></a>&#x5F02;&#x5E38;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#qi-pian-ci-fa-yin-wei-ta-men-zai-yun-xing-shi-hou-xiu-gai-huo-zhe-chuang-jian-liao-xin-de-zuo-yong-yu-qi-pian-qi-ta-zai-shu-xie-shi-ding-yi-de-ci-fa-zuo-yong-yu"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#qi-pian-ci-fa-yin-wei-ta-men-zai-yun-xing-shi-hou-xiu-gai-huo-zhe-chuang-jian-liao-xin-de-zuo-yong-yu-qi-pian-qi-ta-zai-shu-xie-shi-ding-yi-de-ci-fa-zuo-yong-yu" class="header&#x2010;anchor">1.2. </a><a href="#&#x6B3A;&#x9A97;&#x8BCD;&#x6CD5;&#xFF08;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x5019;&#x4FEE;&#x6539;&#x6216;&#x8005;&#x521B;&#x5EFA;&#x4E86;&#x65B0;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x6B3A;&#x9A97;&#x5176;&#x4ED6;&#x5728;&#x4E66;&#x5199;&#x65F6;&#x5B9A;&#x4E49;&#x7684;&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#xFF09;" class="headerlink" title="&#x6B3A;&#x9A97;&#x8BCD;&#x6CD5;&#xFF08;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x5019;&#x4FEE;&#x6539;&#x6216;&#x8005;&#x521B;&#x5EFA;&#x4E86;&#x65B0;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x6B3A;&#x9A97;&#x5176;&#x4ED6;&#x5728;&#x4E66;&#x5199;&#x65F6;&#x5B9A;&#x4E49;&#x7684;&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#xFF09;"></a>&#x6B3A;&#x9A97;&#x8BCD;&#x6CD5;&#xFF08;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x5019;&#x4FEE;&#x6539;&#x6216;&#x8005;&#x521B;&#x5EFA;&#x4E86;&#x65B0;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#xFF0C;&#x6B3A;&#x9A97;&#x5176;&#x4ED6;&#x5728;&#x4E66;&#x5199;&#x65F6;&#x5B9A;&#x4E49;&#x7684;&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#xFF09;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#di-san-zhang-han-shu-zuo-yong-yu-he-kuai-zuo-yong-yu"><span class="nav-number">2.</span> <span class="nav-text"><a href="#di-san-zhang-han-shu-zuo-yong-yu-he-kuai-zuo-yong-yu" class="header&#x2010;anchor">2. </a><a href="#&#x7B2C;&#x4E09;&#x7AE0;-&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x5757;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="&#x7B2C;&#x4E09;&#x7AE0; &#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x5757;&#x4F5C;&#x7528;&#x57DF;"></a>&#x7B2C;&#x4E09;&#x7AE0; &#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x5757;&#x4F5C;&#x7528;&#x57DF;</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-han-shu-zhong-de-zuo-yong-yu"><span class="nav-number">2.0.1.</span> <span class="nav-text"><a href="#3-1-han-shu-zhong-de-zuo-yong-yu" class="header&#x2010;anchor">2.1. </a><a href="#3-1-&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="3.1  &#x51FD;&#x6570;&#x4E2D;&#x7684;&#x4F5C;&#x7528;&#x57DF;"></a>3.1  &#x51FD;&#x6570;&#x4E2D;&#x7684;&#x4F5C;&#x7528;&#x57DF;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-yin-cang-nei-bu-shi-xian"><span class="nav-number">2.0.2.</span> <span class="nav-text"><a href="#3-2-yin-cang-nei-bu-shi-xian" class="header&#x2010;anchor">2.2. </a><a href="#3-2-&#x9690;&#x85CF;&#x5185;&#x90E8;&#x5B9E;&#x73B0;" class="headerlink" title="3.2   &#x9690;&#x85CF;&#x5185;&#x90E8;&#x5B9E;&#x73B0;"></a>3.2   &#x9690;&#x85CF;&#x5185;&#x90E8;&#x5B9E;&#x73B0;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-3-han-shu-zuo-yong-yu"><span class="nav-number">2.0.3.</span> <span class="nav-text"><a href="#3-3-han-shu-zuo-yong-yu" class="header&#x2010;anchor">2.3. </a><a href="#3-3-&#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="3.3  &#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;"></a>3.3  &#x51FD;&#x6570;&#x4F5C;&#x7528;&#x57DF;</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#"><span class="nav-number">2.0.3.1.</span> <span class="nav-text"><a href="#" class="header&#x2010;anchor">2.3.1. </a><a href="#" class="headerlink" title=" "></a> </span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-3-1-ni-ming-he-ju-ming"><span class="nav-number">2.0.3.2.</span> <span class="nav-text"><a href="#3-3-1-ni-ming-he-ju-ming" class="header&#x2010;anchor">2.3.2. </a><a href="#3-3-1-&#x533F;&#x540D;&#x548C;&#x5177;&#x540D;" class="headerlink" title="3.3.1  &#x533F;&#x540D;&#x548C;&#x5177;&#x540D;"></a>3.3.1  &#x533F;&#x540D;&#x548C;&#x5177;&#x540D;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-3-2-li-ji-zhi-xing-han-shu-biao-da-shi-iife"><span class="nav-number">2.0.3.3.</span> <span class="nav-text"><a href="#3-3-2-li-ji-zhi-xing-han-shu-biao-da-shi-iife" class="header&#x2010;anchor">2.3.3. </a><a href="#3-3-2-&#x7ACB;&#x5373;&#x6267;&#x884C;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#xFF08;IIFE&#xFF09;" class="headerlink" title="3.3.2  &#x7ACB;&#x5373;&#x6267;&#x884C;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#xFF08;IIFE&#xFF09;"></a>3.3.2  &#x7ACB;&#x5373;&#x6267;&#x884C;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#xFF08;IIFE&#xFF09;</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-kuai-zuo-yong-yu"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#3-4-kuai-zuo-yong-yu" class="header&#x2010;anchor">2.3.1. </a><a href="#3-4-&#x5757;&#x4F5C;&#x7528;&#x57DF;" class="headerlink" title="3.4 &#x5757;&#x4F5C;&#x7528;&#x57DF;"></a>3.4 &#x5757;&#x4F5C;&#x7528;&#x57DF;</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#3-4-1-with"><span class="nav-number">2.1.0.1.</span> <span class="nav-text"><a href="#3-4-1-with" class="header&#x2010;anchor">2.3.1.1. </a><a href="#3-4-1-with" class="headerlink" title="3.4.1 with"></a>3.4.1 with</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#yong-chu"><span class="nav-number">2.1.1.</span> <span class="nav-text"><a href="#yong-chu" class="header&#x2010;anchor">2.4.1. </a><a href="#&#x7528;&#x5904;" class="headerlink" title="&#x7528;&#x5904;:"></a>&#x7528;&#x5904;:</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-la-ji-shou-ji"><span class="nav-number">2.1.1.1.</span> <span class="nav-text"><a href="#1-la-ji-shou-ji" class="header&#x2010;anchor">2.4.1.1. </a><a href="#1-&#x5783;&#x573E;&#x6536;&#x96C6;" class="headerlink" title="1.&#x5783;&#x573E;&#x6536;&#x96C6;"></a>1.&#x5783;&#x573E;&#x6536;&#x96C6;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-let-xun-huan"><span class="nav-number">2.1.1.2.</span> <span class="nav-text"><a href="#2-let-xun-huan" class="header&#x2010;anchor">2.4.1.2. </a><a href="#2-let&#x5FAA;&#x73AF;" class="headerlink" title="2.let&#x5FAA;&#x73AF;"></a>2.let&#x5FAA;&#x73AF;</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-const"><span class="nav-number">2.1.1.3.</span> <span class="nav-text"><a href="#3-const" class="header&#x2010;anchor">2.4.1.3. </a><a href="#3-const" class="headerlink" title="3.const"></a>3.const</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#di-si-zhang-ti-sheng"><span class="nav-number">3.</span> <span class="nav-text"><a href="#di-si-zhang-ti-sheng" class="header&#x2010;anchor">3.4.1. </a><a href="#&#x7B2C;&#x56DB;&#x7AE0;-&#x63D0;&#x5347;" class="headerlink" title="&#x7B2C;&#x56DB;&#x7AE0;  &#x63D0;&#x5347;"></a>&#x7B2C;&#x56DB;&#x7AE0;  &#x63D0;&#x5347;</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-bian-yi-qi-zai-du-lai-xi"><span class="nav-number">3.0.1.</span> <span class="nav-text"><a href="#4-2-bian-yi-qi-zai-du-lai-xi" class="header&#x2010;anchor">3.5.1. </a><a href="#4-2-&#x7F16;&#x8BD1;&#x5668;&#x518D;&#x5EA6;&#x6765;&#x88AD;" class="headerlink" title="4.2   &#x7F16;&#x8BD1;&#x5668;&#x518D;&#x5EA6;&#x6765;&#x88AD;"></a>4.2   &#x7F16;&#x8BD1;&#x5668;&#x518D;&#x5EA6;&#x6765;&#x88AD;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-3-han-shu-you-xian"><span class="nav-number">3.0.2.</span> <span class="nav-text"><a href="#4-3-han-shu-you-xian" class="header&#x2010;anchor">3.6.1. </a><a href="#4-3-&#x51FD;&#x6570;&#x4F18;&#x5148;" class="headerlink" title="4.3  &#x51FD;&#x6570;&#x4F18;&#x5148;"></a>4.3  &#x51FD;&#x6570;&#x4F18;&#x5148;</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#di-wu-zhang-bi-bao"><span class="nav-number">4.</span> <span class="nav-text"><a href="#di-wu-zhang-bi-bao" class="header&#x2010;anchor">4.1. </a><a href="#&#x7B2C;&#x4E94;&#x7AE0;-&#x95ED;&#x5305;" class="headerlink" title="&#x7B2C;&#x4E94;&#x7AE0;  &#x95ED;&#x5305;"></a>&#x7B2C;&#x4E94;&#x7AE0;  &#x95ED;&#x5305;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Happy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
