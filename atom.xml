@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-21T06:17:23.422Z</updated>
+  <updated>2017-12-21T06:26:16.052Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,33 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>&#39;新博客的搭建&#39;</title>
-    <link href="http://yoursite.com/2017/12/21/%E6%96%B0%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA/"/>
-    <id>http://yoursite.com/2017/12/21/新博客的搭建/</id>
-    <published>2017-12-21T06:17:23.000Z</published>
-    <updated>2017-12-21T06:17:23.422Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;img src=&quot;/2017/12/21/新博客的搭建/lunbo.jpg&quot;
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>支付宝小程序</title>
     <link href="http://yoursite.com/2017/12/21/apply-md/"/>
     <id>http://yoursite.com/2017/12/21/apply-md/</id>
     <published>2017-12-21T02:48:15.000Z</published>
-    <updated>2017-12-21T02:48:15.832Z</updated>
+    <updated>2017-12-21T06:26:16.052Z</updated>
     
     <summary type="html">
     
@@ -59,6 +37,8 @@
     </summary>
     
     
+      <category term="IT" scheme="http://yoursite.com/tags/IT/"/>
+    
   </entry>
   
   <entry>
@@ -66,16 +46,12 @@
     <link href="http://yoursite.com/2017/12/18/%E4%BD%A0%E6%89%80%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%E4%B8%8A/"/>
     <id>http://yoursite.com/2017/12/18/你所不知道的JavaScript上/</id>
     <published>2017-12-18T08:33:33.013Z</published>
-    <updated>2017-12-20T08:07:29.552Z</updated>
+    <updated>2017-12-21T06:30:06.766Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;title: JavaScript学习笔记&lt;/p&gt;
-&lt;p&gt;date：2017-12-20&lt;/p&gt;
-&lt;p&gt;tags:[IT]&lt;/p&gt;
-&lt;p&gt;category:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;杂文
-&lt;/code&gt;&lt;/pre&gt;&lt;!--toc--&gt;
+      &lt;p&gt;title: 支付宝小程序&lt;br&gt;date: 2017-12-21 10:48:15&lt;br&gt;tags: [IT]&lt;/p&gt;
+&lt;!--toc--&gt;
 &lt;h1&gt;第一章 作用域&lt;/h1&gt;
 
 &lt;h3 id=&quot;第一章-作用域&quot;&gt;&lt;a href=&quot;#第一章-作用域&quot; class=&quot;headerlink&quot; title=&quot;第一章 作用域&quot;&gt;&lt;/a&gt;第一章 作用域&lt;/h3&gt;&lt;p&gt;作用域&lt;/p&gt;
