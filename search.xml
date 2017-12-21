@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA['second.md']]></title>
-    <url>%2F2017%2F12%2F20%2Fsecond-md%2F</url>
-    <content type="text"><![CDATA[1. 这是一级标题 1.1. 这是二级标题 1.1.1. 这是三级标题 1.1.1.1. 这是四级标题]]></content>
+    <title><![CDATA[支付宝小程序]]></title>
+    <url>%2F2017%2F12%2F21%2Fapply-md%2F</url>
+    <content type="text"><![CDATA[1. 概述 App代表顶层应用，管理所有页面和全局数据。同时也是一个构造方法，生成的App实例就是小程序； app.js:应用逻辑​ app.acss:应用样式（可选）​ app.json:应用配置 app.js提供四个事件，可以设置钩子方法onLaunch:小程序启动；onShow:小程序切换到前台onHide:小程序切换到后台onError:小程序出错]]></content>
   </entry>
   <entry>
     <title></title>
@@ -13,6 +13,6 @@
   <entry>
     <title></title>
     <url>%2F2017%2F12%2F18%2Fhello%2F</url>
-    <content type="text"><![CDATA[title:测试页面 1. First Page 1.1. second 1.1.1. third 这是第一个页面 &copy; This is a code,please take care!]]></content>
+    <content type="text"><![CDATA[title:测试页面 date:2017-12-20 1. First Page 1.1. second 1.1.1. third 这是第一个页面 &copy; This is a code,please take care!]]></content>
   </entry>
 </search>
