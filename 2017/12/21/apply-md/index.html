@@ -7,16 +7,18 @@
   
   <title>支付宝小程序 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 概述  App代表顶层应用，管理所有页面和全局数据。同时也是一个构造方法，生成的App实例就是小程序；  app.js:应用逻辑​    app.acss:应用样式（可选）​    app.json:应用配置  app.js提供四个事件，可以设置钩子方法onLaunch:小程序启动；onShow:小程序切换到前台onHide:小程序切换到后台onError:小程序出错">
+  <meta name="description" content="1. 概述  App代表顶层应用，管理所有页面和全局数据。同时也是一个构造方法，生成的App实例就是小程序；  app.js:应用逻辑​    app.acss:应用样式（可选）​    app.json:应用配置  app.js提供四个事件，可以设置钩子方法onLaunch:小程序启动；onShow:小程序切换到前台onHide:小程序切换到后台onError:小程序出错  onLaunch/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="支付宝小程序">
 <meta property="og:url" content="http://yoursite.com/2017/12/21/apply-md/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 概述  App代表顶层应用，管理所有页面和全局数据。同时也是一个构造方法，生成的App实例就是小程序；  app.js:应用逻辑​    app.acss:应用样式（可选）​    app.json:应用配置  app.js提供四个事件，可以设置钩子方法onLaunch:小程序启动；onShow:小程序切换到前台onHide:小程序切换到后台onError:小程序出错">
+<meta property="og:description" content="1. 概述  App代表顶层应用，管理所有页面和全局数据。同时也是一个构造方法，生成的App实例就是小程序；  app.js:应用逻辑​    app.acss:应用样式（可选）​    app.json:应用配置  app.js提供四个事件，可以设置钩子方法onLaunch:小程序启动；onShow:小程序切换到前台onHide:小程序切换到后台onError:小程序出错  onLaunch/">
+<meta property="og:image" content="c:/Users/Administrator/Desktop/Snipaste_2017-12-21_11-37-06.png">
 <meta property="og:updated_time" content="2017-12-21T02:48:15.832Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="支付宝小程序">
-<meta name="twitter:description" content="1. 概述  App代表顶层应用，管理所有页面和全局数据。同时也是一个构造方法，生成的App实例就是小程序；  app.js:应用逻辑​    app.acss:应用样式（可选）​    app.json:应用配置  app.js提供四个事件，可以设置钩子方法onLaunch:小程序启动；onShow:小程序切换到前台onHide:小程序切换到后台onError:小程序出错">
+<meta name="twitter:description" content="1. 概述  App代表顶层应用，管理所有页面和全局数据。同时也是一个构造方法，生成的App实例就是小程序；  app.js:应用逻辑​    app.acss:应用样式（可选）​    app.json:应用配置  app.js提供四个事件，可以设置钩子方法onLaunch:小程序启动；onShow:小程序切换到前台onHide:小程序切换到后台onError:小程序出错  onLaunch/">
+<meta name="twitter:image" content="c:/Users/Administrator/Desktop/Snipaste_2017-12-21_11-37-06.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -85,7 +87,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="gai-shu"><a href="#gai-shu" class="header‐anchor">1. </a>概述</h1>
+        <!--toc-->
+<h1 id="gai-shu"><a href="#gai-shu" class="header‐anchor">1. </a>概述</h1>
 
 <p>App代表顶层应用，管理所有页面和全局数据。同时也是一个构造方法，生成的App实例就是小程序；<br><br></p>
 
@@ -93,11 +96,17 @@
 
 <p>app.js提供四个事件，可以设置钩子方法<br><br>onLaunch:小程序启动；<br><br>onShow:小程序切换到前台<br><br>onHide:小程序切换到后台<br><br>onError:小程序出错<br><br></p>
 
+<p>onLaunch/onShow方法的参数:query(object)     path(string)<br><br></p>
+
+
+
+<p><br><br>getApp()，可以获取到小程序实例，一般在各个子页面中获取顶层使用<br><br><code>var app = getApp()</code><br><br>全局的数据可以在App()中设置各个子页面通过全局函数getApp()可以获取全局的应用实例<br><br><br><br>app.json用于全局配置，决定页面文件的路径(pages)、窗口表现(window)、设置网络超时时间、设置多tab等<br><br>pages属性是一个数组，每一项都是字符串，页面后面可以不加后缀<br><br>window属性用于设置小程序通用的状态栏、导航条、标题、窗口背景色；<br><br><img src="C:\Users\Administrator\Desktop\Snipaste_2017-12-21_11-37-06.png" alt="Snipaste_2017-12-21_11-37-06"><br><br><br><br></p>
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/21/apply-md/" data-id="cjbfwdnt40000isqkg1s2oikr" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/21/apply-md/" data-id="cjbg3mtaq0003t8qk279e3gj2" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -105,6 +114,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2017/12/21/新博客的搭建/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          &#39;新博客的搭建&#39;
+        
+      </div>
+    </a>
   
   
     <a href="/2017/12/18/你所不知道的JavaScript上/" id="article-nav-older" class="article-nav-link-wrap">
@@ -144,6 +162,10 @@
     <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/12/21/新博客的搭建/">&#39;新博客的搭建&#39;</a>
+          </li>
         
           <li>
             <a href="/2017/12/21/apply-md/">支付宝小程序</a>
