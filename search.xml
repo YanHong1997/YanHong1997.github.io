@@ -4,6 +4,9 @@
     <title><![CDATA[支付宝小程序]]></title>
     <url>%2F2017%2F12%2F21%2Fapply-md%2F</url>
     <content type="text"><![CDATA[1. 概述 App代表顶层应用，管理所有页面和全局数据。同时也是一个构造方法，生成的App实例就是小程序； app.js:应用逻辑​ app.acss:应用样式（可选）​ app.json:应用配置 app.js提供四个事件，可以设置钩子方法onLaunch:小程序启动；onShow:小程序切换到前台onHide:小程序切换到后台onError:小程序出错 onLaunch/onShow方法的参数:query(object) path(string) getApp()，可以获取到小程序实例，一般在各个子页面中获取顶层使用var app = getApp()全局的数据可以在App()中设置各个子页面通过全局函数getApp()可以获取全局的应用实例app.json用于全局配置，决定页面文件的路径(pages)、窗口表现(window)、设置网络超时时间、设置多tab等pages属性是一个数组，每一项都是字符串，页面后面可以不加后缀window属性用于设置小程序通用的状态栏、导航条、标题、窗口背景色；]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
       <tags>
         <tag>IT</tag>
       </tags>
@@ -16,6 +19,6 @@
   <entry>
     <title></title>
     <url>%2F2017%2F12%2F18%2Fhello%2F</url>
-    <content type="text"><![CDATA[title:测试页面 date:2017-12-20 1. First Page 1.1. second 1.1.1. third 这是第一个页面 &copy; This is a code,please take care!]]></content>
+    <content type="text"><![CDATA[title: 测试页面date: 2017-12-20 1. First Page 1.1. second 1.1.1. third 这是第一个页面 &copy; This is a code,please take care!]]></content>
   </entry>
 </search>
