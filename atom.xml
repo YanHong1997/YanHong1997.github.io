@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-12-21T06:41:35.981Z</updated>
+  <updated>2017-12-21T09:32:12.390Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,39 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>你所不知道的JavaScript上</title>
-    <link href="http://yoursite.com/2017/12/21/%E4%BD%A0%E6%89%80%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%E4%B8%8A/"/>
-    <id>http://yoursite.com/2017/12/21/你所不知道的JavaScript上/</id>
-    <published>2017-12-21T02:48:15.000Z</published>
-    <updated>2017-12-21T06:41:35.981Z</updated>
-    
-    <summary type="html">
-    
-      &lt;!--toc--&gt;
-&lt;h3 id=&quot;第一章-作用域&quot;&gt;&lt;a href=&quot;#第一章-作用域&quot; class=&quot;headerlink&quot; title=&quot;第一章 作用域&quot;&gt;&lt;/a&gt;第一章 作用域&lt;/h3&gt;&lt;p&gt;作用域&lt;/p&gt;
-&lt;p&gt;一般语言的作用域生成过程：分词/词法分析、解析/语法分析、代码生成&lt;/p&gt;
-&lt;p&gt;编译器要生成一个树，还要询问作用域是否已经存在该变量，没有就生成；还要为引擎生成运行代码，这时引擎就要找这个变量了，有的话就用，没有就继续查找；（首先编译器会在当前作用域中声明之前没有声明的变量，然后引擎在作用域中查找该变量，能找到就对它进行赋值）&lt;/p&gt;
-&lt;h4 id=&quot;异常&quot;&gt;&lt;a href=&quot;#异常&quot; class=&quot;headerlink&quot; title=&quot;异常&quot;&gt;&lt;/a&gt;异常&lt;/h4&gt;&lt;p&gt;ReferenceError同作用域判断失败相关，TypeError代表作用域判断成功了，但是对结果的操作是非法的或是不合理的；&lt;/p&gt;
-&lt;p&gt;如果查找的目标是对变量进行赋值，就会使用LHS查询；如果目标是获得变量的是，就会进行RHS查询。&lt;/p&gt;
-&lt;h4 id=&quot;欺骗词法（因为它们在运行时候修改或者创建了新的作用域，欺骗其他在书写时定义的词法作用域）&quot;&gt;&lt;a href=&quot;#欺骗词法（因为它们在运行时候修改或者创建了新的作用域，欺骗其他在书写时定义的词法作用域）&quot; class=&quot;headerlink&quot; title=&quot;欺骗词法（因为它们在运行时候修改或者创建了新的作用域，欺骗其他在书写时定义的词法作用域）&quot;&gt;&lt;/a&gt;欺骗词法（因为它们在运行时候修改或者创建了新的作用域，欺骗其他在书写时定义的词法作用域）&lt;/h4&gt;&lt;p&gt;第一种机制：eval(string)，通常被用来执行动态创建的代码；但是在严格模式上，eval在运行的时候会有自己的词法作用域，就无法修改所在的作用域 ；&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;function foo(str, a) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;eval( str ); // 欺骗！&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log( a, b );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var b = 2;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;foo( &amp;quot;var b = 3;&amp;quot;, 1 ); // 1, 3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;第二种机制：with,实际上是根据传递给它的对象凭空创建了一个全新的词法作用域；&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="杂文" scheme="http://yoursite.com/categories/%E6%9D%82%E6%96%87/"/>
-    
-    
-      <category term="IT" scheme="http://yoursite.com/tags/IT/"/>
-    
-  </entry>
-  
-  <entry>
     <title>支付宝小程序</title>
-    <link href="http://yoursite.com/2017/12/21/apply-md/"/>
-    <id>http://yoursite.com/2017/12/21/apply-md/</id>
+    <link href="http://yoursite.com/2017/12/21/%E6%94%AF%E4%BB%98%E5%AE%9D%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    <id>http://yoursite.com/2017/12/21/支付宝小程序/</id>
     <published>2017-12-21T02:48:15.000Z</published>
-    <updated>2017-12-21T06:41:35.981Z</updated>
+    <updated>2017-12-21T09:32:12.390Z</updated>
     
     <summary type="html">
     
@@ -68,6 +40,30 @@
     
     
       <category term="IT" scheme="http://yoursite.com/tags/IT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2017/12/18/%E4%BD%A0%E6%89%80%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%E4%B8%8A/"/>
+    <id>http://yoursite.com/2017/12/18/你所不知道的JavaScript上/</id>
+    <published>2017-12-18T08:33:33.013Z</published>
+    <updated>2017-12-21T09:28:02.406Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;title-你所不知道的JavaScript上date-2017-12-21-10-48-15tags-ITcategory-杂文&quot;&gt;&lt;a href=&quot;#title-你所不知道的JavaScript上date-2017-12-21-10-48-15tags-ITcategory-杂文&quot; class=&quot;headerlink&quot; title=&quot;title: 你所不知道的JavaScript上date: 2017-12-21 10:48:15tags: ITcategory: 杂文&quot;&gt;&lt;/a&gt;title: 你所不知道的JavaScript上date: 2017-12-21 10:48:15tags: ITcategory: 杂文&lt;/h4&gt;&lt;!--toc--&gt;
+&lt;h3 id=&quot;第一章-作用域&quot;&gt;&lt;a href=&quot;#第一章-作用域&quot; class=&quot;headerlink&quot; title=&quot;第一章 作用域&quot;&gt;&lt;/a&gt;第一章 作用域&lt;/h3&gt;&lt;p&gt;作用域&lt;/p&gt;
+&lt;p&gt;一般语言的作用域生成过程：分词/词法分析、解析/语法分析、代码生成&lt;/p&gt;
+&lt;p&gt;编译器要生成一个树，还要询问作用域是否已经存在该变量，没有就生成；还要为引擎生成运行代码，这时引擎就要找这个变量了，有的话就用，没有就继续查找；（首先编译器会在当前作用域中声明之前没有声明的变量，然后引擎在作用域中查找该变量，能找到就对它进行赋值）&lt;/p&gt;
+&lt;h4 id=&quot;异常&quot;&gt;&lt;a href=&quot;#异常&quot; class=&quot;headerlink&quot; title=&quot;异常&quot;&gt;&lt;/a&gt;异常&lt;/h4&gt;&lt;p&gt;ReferenceError同作用域判断失败相关，TypeError代表作用域判断成功了，但是对结果的操作是非法的或是不合理的；&lt;/p&gt;
+&lt;p&gt;如果查找的目标是对变量进行赋值，就会使用LHS查询；如果目标是获得变量的是，就会进行RHS查询。&lt;/p&gt;
+&lt;h4 id=&quot;欺骗词法（因为它们在运行时候修改或者创建了新的作用域，欺骗其他在书写时定义的词法作用域）&quot;&gt;&lt;a href=&quot;#欺骗词法（因为它们在运行时候修改或者创建了新的作用域，欺骗其他在书写时定义的词法作用域）&quot; class=&quot;headerlink&quot; title=&quot;欺骗词法（因为它们在运行时候修改或者创建了新的作用域，欺骗其他在书写时定义的词法作用域）&quot;&gt;&lt;/a&gt;欺骗词法（因为它们在运行时候修改或者创建了新的作用域，欺骗其他在书写时定义的词法作用域）&lt;/h4&gt;&lt;p&gt;第一种机制：eval(string)，通常被用来执行动态创建的代码；但是在严格模式上，eval在运行的时候会有自己的词法作用域，就无法修改所在的作用域 ；&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;function foo(str, a) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;eval( str ); // 欺骗！&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log( a, b );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var b = 2;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;foo( &amp;quot;var b = 3;&amp;quot;, 1 ); // 1, 3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;第二种机制：with,实际上是根据传递给它的对象凭空创建了一个全新的词法作用域；&lt;/p&gt;
+    
+    </summary>
+    
     
   </entry>
   
