@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[express]]></title>
+    <url>%2F2017%2F12%2F25%2Fexpress%2F</url>
+    <content type="text"><![CDATA[1. 起步1.1. 什么是express基于 Node.js 平台，快速、开放、极简的 web 开发框架。 1.2. express的安装1.2.1. 步骤 ​ 1C:\Users\Administrator&gt;npm install -g express-generator 2.切入目录到项目中去 1E:\APP\Demo&gt;express -e service //基于ejs创建了服务端的文件 3.进入服务端的项目，执行npm install 1E:\APP\Demo&gt;service&gt;npm install //会发现多了node_modules 4.npm start后，浏览器输入local:3000 (默认3000端口) 1.2.2. 解惑1.为什么要通过npm start启动？ 因为在package.json文件中有这么一段代码，提到了www文件 下面是www文件 1.3. 数据读取接口 node提供服务只需要res.send()返回数据就行了 下面是通过自己定义的路径访问成功的数据实例 优化后的 1.3.1. 数据存储接口1.读取原始数据 最后在浏览器输入 1http://localhost:3000/data/write/type=it&amp;title=111&amp;url=xxx.com&amp;images=xxx.png]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>IT</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[支付宝小程序]]></title>
     <url>%2F2017%2F12%2F21%2F%E6%94%AF%E4%BB%98%E5%AE%9D%E5%B0%8F%E7%A8%8B%E5%BA%8F%2F</url>
-    <content type="text"><![CDATA[1. 概述 App代表顶层应用，管理所有页面和全局数据。同时也是一个构造方法，生成的App实例就是小程序； app.js:应用逻辑​ app.acss:应用样式（可选）​ app.json:应用配置 app.js提供四个事件，可以设置钩子方法onLaunch:小程序启动；onShow:小程序切换到前台onHide:小程序切换到后台onError:小程序出错 onLaunch/onShow方法的参数:query(object) path(string) getApp()，可以获取到小程序实例，一般在各个子页面中获取顶层使用var app = getApp()s全局的数据可以在App()中设置各个子页面通过全局函数getApp()可以获取全局的应用实例app.json用于全局配置，决定页面文件的路径(pages)、窗口表现(window)、设置网络超时时间、设置多tab等pages属性是一个数组，每一项都是字符串，页面后面可以不加后缀window属性用于设置小程序通用的状态栏、导航条、标题、窗口背景色；]]></content>
+    <content type="text"><![CDATA[1. 概述 App代表顶层应用，管理所有页面和全局数据。同时也是一个构造方法，生成的App实例就是小程序； app.js:应用逻辑​ app.acss:应用样式（可选）​ app.json:应用配置 app.js提供四个事件，可以设置钩子方法onLaunch:小程序启动；onShow:小程序切换到前台onHide:小程序切换到后台onError:小程序出错 onLaunch/onShow方法的参数:query(object) path(string)getApp()，可以获取到小程序实例，一般在各个子页面中获取顶层使用 var app = getApp()s全局的数据可以在App()中设置各个子页面通过全局函数getApp()可以获取全局的应用实例app.json用于全局配置，决定页面文件的路径(pages)、窗口表现(window)、设置网络超时时间、设置多tab等pages属性是一个数组，每一项都是字符串，页面后面可以不加后缀window属性用于设置小程序通用的状态栏、导航条、标题、窗口背景色； 1.1. 视图层(.axml)定义了页面的标签解构 1.1.1. 数据绑定 1.1.2. 列表渲染 1.1.2.1. 1.1.3. 条件渲染 ​ 1.1.3.1. a:if是一个控制属性 a:if=”“ 1.1.3.2. block a:if 不是一个组件仅仅是一个包装原元素 1.1.4. 模板 1.1.5. 事件 1.1.6.]]></content>
       <categories>
         <category>杂文</category>
       </categories>
