@@ -25,14 +25,18 @@
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;!--toc--&gt;
-&lt;h1 id=&quot;qi-bu&quot;&gt;&lt;a href=&quot;#qi-bu&quot; class=&quot;header‐anchor&quot;&gt;1. &lt;/a&gt;&lt;a href=&quot;#起步&quot; class=&quot;headerlink&quot; title=&quot;起步&quot;&gt;&lt;/a&gt;起步&lt;/h1&gt;&lt;h2
-        
-      
+      &lt;!--toc--&gt;
+&lt;h1 id=&quot;起步&quot;&gt;&lt;a href=&quot;#起步&quot; class=&quot;headerlink&quot; title=&quot;起步&quot;&gt;&lt;/a&gt;起步&lt;/h1&gt;&lt;h2 id=&quot;什么是express&quot;&gt;&lt;a href=&quot;#什么是express&quot; class=&quot;headerlink&quot; title=&quot;什么是express&quot;&gt;&lt;/a&gt;什么是express&lt;/h2&gt;&lt;p&gt;基于 &lt;a href=&quot;http://nodejs.org&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Node.js&lt;/a&gt; 平台，快速、开放、极简的 web 开发框架。&lt;/p&gt;
+&lt;h2 id=&quot;express的安装&quot;&gt;&lt;a href=&quot;#express的安装&quot; class=&quot;headerlink&quot; title=&quot;express的安装&quot;&gt;&lt;/a&gt;express的安装&lt;/h2&gt;&lt;h3 id=&quot;步骤&quot;&gt;&lt;a href=&quot;#步骤&quot; class=&quot;headerlink&quot; title=&quot;步骤&quot;&gt;&lt;/a&gt;步骤&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;​&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;C:\Users\Administrator&amp;gt;npm install -g express-generator&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt; 2.切入目录到项目中去&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;E:\APP\Demo&amp;gt;express -e service  //基于ejs创建了服务端的文件&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;3.进入服务端的项目，执行npm install&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;E:\APP\Demo&amp;gt;service&amp;gt;npm install  //会发现多了node_modules&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;4.npm start后，浏览器输入local:3000 (默认3000端口)&lt;/p&gt;
+&lt;img src=&quot;/2017/12/25/express/express.png&quot; title=&quot;安装测试&quot;&gt;
     
     </summary>
     
